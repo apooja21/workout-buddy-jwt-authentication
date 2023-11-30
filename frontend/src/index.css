@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/*Layout*/
+:root {
+	--primary: #3a0ca3;
+	--secondary: #ff006e;
+}
+
+body {
+	background: #7209b7;
+	font-family: 'Montserrat', sans-serif;
+	margin: 0;
+}
+
+header {
+	background: #fff;
+}
+.container {
+	display: flex;
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 10px 60px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header a {
+	color: #000;
+	text-decoration: none;
+}
+.pages {
+	max-width: 100%;
+	padding: 10px 20px;
+	margin: 0 auto;
+}
+.workouts {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	margin: 20px;
+}
+.workout-card {
+	width: 350px;
+	border-radius: 15px;
+	padding: 10px;
+	margin: 20px;
+	color: #fff;
+	background: #4361ee;
+	box-shadow: 21px 21px 42px #5d0796, -21px -21px 42px #870bd8;
+}
+.workout-img {
+	width: 100%;
+	border-radius: 15px;
+}
