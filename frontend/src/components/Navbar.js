@@ -7,9 +7,6 @@ function Navbar() {
 				<Link to='/'>
 					<h2>Workout Buddy</h2>
 				</Link>
-				<Link to='/create'>
-					<h4>Create</h4>
-				</Link>
 			</div>
 		</header>
 	)
