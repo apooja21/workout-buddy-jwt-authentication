@@ -10,7 +10,7 @@
 }
 
 body {
-	background: var(--body-color);
+	background: #1a1a1a;
 	font-family: 'Montserrat', sans-serif;
 	margin: 0;
 }
@@ -60,7 +60,6 @@ header a {
 	margin: 20px;
 	color: var(--primary);
 	background: var(--white);
-	box-shadow: 21px 21px 42px #5d0796, -21px -21px 42px #870bd8;
 }
 
 .card-header {
@@ -86,6 +85,18 @@ header a {
 .workout-details {
 	color: var(--secondary);
 }
+.details {
+	position: relative;
+}
+.workout-card .delete {
+	background-color: var(--secondary);
+	border: none;
+	border-radius: 20px;
+	padding: 10px;
+	position: absolute;
+	top: 2px;
+	right: 10px;
+}
 
 .form {
 	display: flex;
@@ -106,7 +117,7 @@ header a {
 	margin-bottom: 30px;
 }
 
-.input {
+.form input {
 	border: 1px solid var(--primary);
 	width: 90%;
 	border-radius: 10px;
@@ -116,8 +127,12 @@ header a {
 	font-size: 16px;
 }
 
-.input::placeholder {
+.form input::placeholder {
 	color: var(--primary);
+}
+
+input.error {
+	border: 1px solid var(--secondary);
 }
 
 .btn {
@@ -129,4 +144,7 @@ header a {
 	font-size: 16px;
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+.error-warning {
+	color: var(--secondary);
 }

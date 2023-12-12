@@ -16,9 +16,12 @@ const workoutSchema = new Schema(
 			type: Number,
 			required: true,
 		},
+		targetArea: {
+			type: String,
+			required: true,
+		},
 	},
 	{ timestamps: true }
 )
 
 module.exports = mongoose.model('Workout', workoutSchema)
-

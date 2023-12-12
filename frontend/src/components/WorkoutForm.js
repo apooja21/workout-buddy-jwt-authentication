@@ -1,15 +1,19 @@
 import { useState } from 'react'
+import { useWorkoutContext } from '../hooks/useWorkoutContext'
 
 function WorkoutForm() {
+	const { dispatch } = useWorkoutContext()
 	const [title, setTitle] = useState('')
 	const [load, setLoad] = useState('')
 	const [reps, setReps] = useState('')
+	const [targetArea, setTargetArea] = useState('')
 	const [error, setError] = useState(null)
+	const [emptyFields, setEmptyFields] = useState([])
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
-		const workout = { title, load, reps }
+		const workout = { title, load, reps, targetArea }
 
 		const response = await fetch('/api/workouts', {
 			method: 'POST',
@@ -22,13 +26,17 @@ function WorkoutForm() {
 
 		if (!response.ok) {
 			setError(json.error)
+			setEmptyFields(json.emptyFields)
 		}
 		if (response.ok) {
 			setTitle('')
 			setLoad('')
 			setReps('')
+			setTargetArea('')
 			setError(null)
+			setEmptyFields([])
 			console.log('New workout added', json)
+			dispatch({ type: 'CREATE_WORKOUT', payload: json })
 		}
 	}
 
@@ -38,31 +46,40 @@ function WorkoutForm() {
 			<input
 				type='text'
 				name='name'
-				className='input'
+				className={emptyFields.includes('title') ? 'error' : ''}
 				placeholder='Workout Name'
 				onChange={(e) => setTitle(e.target.value)}
 				value={title}
 			/>
 
 			<input
-				type='text'
+				type='number'
 				name='load'
-				className='input'
+				className={emptyFields.includes('load') ? 'error' : ''}
 				placeholder='Load (in KG)'
 				onChange={(e) => setLoad(e.target.value)}
 				value={load}
 			/>
 
 			<input
-				type='text'
+				type='number'
 				name='reps'
-				className='input'
+				className={emptyFields.includes('reps') ? 'error' : ''}
 				placeholder='Repetitions'
 				onChange={(e) => setReps(e.target.value)}
 				value={reps}
 			/>
+			<input
+				type='text'
+				name='targetArea'
+				className={emptyFields.includes('targetArea') ? 'error' : ''}
+				placeholder='Target Area'
+				onChange={(e) => setTargetArea(e.target.value)}
+				value={targetArea}
+			/>
 
 			<button className='btn'>Add Workout</button>
+			{error && <div className='error-warning'>{error}</div>}
 		</form>
 	)
 }
