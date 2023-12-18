@@ -16,22 +16,22 @@ function WorkoutDetails({ workout }) {
 	}
 
 	return (
-		<div className='workout-card'>
-			<div className='card-header'>
+		<div className='workout-card bg-petite-orchid w-80 m-5 p-2.5 rounded-2xl text-paris-m'>
+			<div className='card-header relative'>
 				<img
 					src='https://source.unsplash.com/1600x1000/?workouts'
-					className='workout-img'
+					className='workout-img w-full rounded-xl'
 					alt=''
 				/>
-				<span className='workout-details'>
+				<span className='workout-details absolute top-2 right-2.5 p-1 bg-paris-m/50 rounded-xl text-xs font-medium text-white'>
 					{formatDistanceToNow(new Date(workout.createdAt), {
 						addSuffix: true,
 					})}
 				</span>
 			</div>
-			<div className='details'>
-				<h2>{workout.title}</h2>
-				<p className='workout-details'>
+			<div className='details relative pt-2.5'>
+				<h2 className='text-lg font-bold uppercase'>{workout.title}</h2>
+				<p className='workout-details '>
 					<strong>Load (kg): </strong>
 					{workout.load}
 				</p>
@@ -43,7 +43,9 @@ function WorkoutDetails({ workout }) {
 					<strong>Target Area: </strong>
 					{workout.targetArea}
 				</p>
-				<button className='delete' onClick={handleClick}>
+				<button
+					className='delete absolute p-2 top-3 right-0.5 bg-paris-m text-white rounded-3xl text-sm font-bold'
+					onClick={handleClick}>
 					Delete
 				</button>
 			</div>

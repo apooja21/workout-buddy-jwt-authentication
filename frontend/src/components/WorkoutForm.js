@@ -41,12 +41,16 @@ function WorkoutForm() {
 	}
 
 	return (
-		<form className='form' onSubmit={handleSubmit}>
-			<h1>Add a New Workout</h1>
+		<form
+			className='form bg-petite-orchid flex flex-col w-96 sticky top-12 mx-10 my-5 p-6 items-center text-center rounded-xl'
+			onSubmit={handleSubmit}>
+			<h1 className='mb-5 text-xl font-bold text-paris-m'>Add a New Workout</h1>
 			<input
 				type='text'
 				name='name'
-				className={emptyFields.includes('title') ? 'error' : ''}
+				className={`w-64 border-2 border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
+					emptyFields.includes('title') ? 'error' : ''
+				}`}
 				placeholder='Workout Name'
 				onChange={(e) => setTitle(e.target.value)}
 				value={title}
@@ -55,7 +59,9 @@ function WorkoutForm() {
 			<input
 				type='number'
 				name='load'
-				className={emptyFields.includes('load') ? 'error' : ''}
+				className={`w-64 border-2 border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
+					emptyFields.includes('load') ? 'error' : ''
+				}`}
 				placeholder='Load (in KG)'
 				onChange={(e) => setLoad(e.target.value)}
 				value={load}
@@ -64,7 +70,9 @@ function WorkoutForm() {
 			<input
 				type='number'
 				name='reps'
-				className={emptyFields.includes('reps') ? 'error' : ''}
+				className={`w-64 border-2 border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
+					emptyFields.includes('reps') ? 'error' : ''
+				}`}
 				placeholder='Repetitions'
 				onChange={(e) => setReps(e.target.value)}
 				value={reps}
@@ -72,14 +80,18 @@ function WorkoutForm() {
 			<input
 				type='text'
 				name='targetArea'
-				className={emptyFields.includes('targetArea') ? 'error' : ''}
+				className={`w-64 border-2 border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
+					emptyFields.includes('targetArea') ? 'error' : ''
+				}`}
 				placeholder='Target Area'
 				onChange={(e) => setTargetArea(e.target.value)}
 				value={targetArea}
 			/>
 
-			<button className='btn'>Add Workout</button>
-			{error && <div className='error-warning'>{error}</div>}
+			<button className='btn bg-paris-m text-white p-3 rounded-md text-sm'>
+				Add Workout
+			</button>
+			{error && <div className='error-warning bg-paris-m/50 mt-3 px-1.5 py-1 rounded-md text-white'>{error}</div>}
 		</form>
 	)
 }

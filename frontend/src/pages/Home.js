@@ -19,14 +19,14 @@ function Home() {
 	}, [dispatch])
 
 	return (
-		<div className='home'>
-			<div className='workouts'>
+		<div className='home flex flex-row'>
+			<div className='workouts w-full m-5 flex justify-start items-center flex-wrap'>
 				{workouts &&
 					workouts.map((workout) => (
 						<WorkoutDetails key={workout._id} workout={workout} />
 					))}
 			</div>
-			<div className='create'>
+			<div className='create mt-6'>
 				<WorkoutForm />
 			</div>
 		</div>
