@@ -1,13 +1,22 @@
 import { useWorkoutContext } from '../hooks/useWorkoutContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 function WorkoutDetails({ workout }) {
 	const { dispatch } = useWorkoutContext()
+	const {user} = useAuthContext()
 
 	const handleClick = async () => {
+		if(!user){
+			return
+		}
+
 		const response = await fetch('/api/workouts/' + workout._id, {
 			method: 'DELETE',
+			headers: {
+				'Authorization': `Bearer ${user.token}`
+			}
 		})
 		const json = await response.json()
 		if (response.ok) {
@@ -16,11 +25,11 @@ function WorkoutDetails({ workout }) {
 	}
 
 	return (
-		<div className='workout-card bg-petite-orchid w-80 m-5 p-2.5 rounded-2xl text-paris-m'>
+		<div className='workout-card border-solid border border-slate-300 w-80 m-5 p-2.5 rounded-2xl text-paris-m'>
 			<div className='card-header relative'>
 				<img
 					src='https://source.unsplash.com/1600x1000/?workouts'
-					className='workout-img w-full rounded-xl'
+					className='workout-img w-full'
 					alt=''
 				/>
 				<span className='workout-details absolute top-2 right-2.5 p-1 bg-paris-m/50 rounded-xl text-xs font-medium text-white'>
@@ -44,7 +53,7 @@ function WorkoutDetails({ workout }) {
 					{workout.targetArea}
 				</p>
 				<button
-					className='delete absolute p-2 top-3 right-0.5 bg-paris-m text-white rounded-3xl text-sm font-bold'
+					className='delete absolute p-2 top-3 right-0.5 bg-paris-m text-white rounded-3xl text-sm font-medium'
 					onClick={handleClick}>
 					Delete
 				</button>

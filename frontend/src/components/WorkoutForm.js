@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useWorkoutContext } from '../hooks/useWorkoutContext'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 function WorkoutForm() {
 	const { dispatch } = useWorkoutContext()
@@ -9,9 +10,14 @@ function WorkoutForm() {
 	const [targetArea, setTargetArea] = useState('')
 	const [error, setError] = useState(null)
 	const [emptyFields, setEmptyFields] = useState([])
+	const {user} = useAuthContext()
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
+		if(!user){
+			setError('You must be logged in')
+			return
+		}
 
 		const workout = { title, load, reps, targetArea }
 
@@ -20,6 +26,7 @@ function WorkoutForm() {
 			body: JSON.stringify(workout),
 			headers: {
 				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${user.token}`
 			},
 		})
 		const json = await response.json()
@@ -42,13 +49,13 @@ function WorkoutForm() {
 
 	return (
 		<form
-			className='form bg-petite-orchid flex flex-col w-96 sticky top-12 mx-10 my-5 p-6 items-center text-center rounded-xl'
+			className='form flex flex-col w-96 sticky top-12 mx-10 my-5 p-6 items-center text-center rounded-xl'
 			onSubmit={handleSubmit}>
-			<h1 className='mb-5 text-xl font-bold text-paris-m'>Add a New Workout</h1>
+			<h1 className='mb-5 text-xl font-bold text-paris-m'>Add New Workout</h1>
 			<input
 				type='text'
 				name='name'
-				className={`w-64 border-2 border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
+				className={`w-64 border border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
 					emptyFields.includes('title') ? 'error' : ''
 				}`}
 				placeholder='Workout Name'
@@ -59,7 +66,7 @@ function WorkoutForm() {
 			<input
 				type='number'
 				name='load'
-				className={`w-64 border-2 border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
+				className={`w-64 border border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
 					emptyFields.includes('load') ? 'error' : ''
 				}`}
 				placeholder='Load (in KG)'
@@ -70,7 +77,7 @@ function WorkoutForm() {
 			<input
 				type='number'
 				name='reps'
-				className={`w-64 border-2 border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
+				className={`w-64 border border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
 					emptyFields.includes('reps') ? 'error' : ''
 				}`}
 				placeholder='Repetitions'
@@ -80,7 +87,7 @@ function WorkoutForm() {
 			<input
 				type='text'
 				name='targetArea'
-				className={`w-64 border-2 border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
+				className={`w-64 border border-solid border-paris-m rounded-md px-2.5 py-1 mb-3 border-box ${
 					emptyFields.includes('targetArea') ? 'error' : ''
 				}`}
 				placeholder='Target Area'
