@@ -15,7 +15,7 @@ const Signup = () => {
 		<form
 			className='login flex flex-col w-96 items-center p-6 mx-auto my-6 text-center rounded-2xl'
 			onSubmit={handleSubmit}>
-			<h3 className='text-xl text-paris-m text-2xl font-bold mb-4'>Sign Up</h3>
+			<h3 className='text-paris-m text-2xl font-bold mb-4'>Sign Up</h3>
 
 			
 			<input

@@ -12,11 +12,11 @@ function Navbar() {
 
 	return (
 		<header>
-			<div className='container mx-auto py-3 px-15 flex justify-between items-center'>
+			<div className='container mx-auto py-4  flex justify-between items-center'>
 				<Link to='/' className='text-paris-m font-bold'>
 					<h2 className='text-lg'>Workout Buddy</h2>
 				</Link>
-				<nav className='flex flex-row gap-3 items-center'>
+				<nav className='flex flex-row gap-x-5 items-center'>
 					{user && (
 						<div className='text-paris-m font-medium'>
 							<span className='mr-2 text-paris-m '>{user.email}</span>

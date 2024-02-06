@@ -29,7 +29,7 @@ function Home() {
 
 	return (
 		<div className='home flex flex-row'>
-			<div className='workouts w-full m-5 flex justify-start items-center flex-wrap'>
+			<div className='workouts w-full mx-auto p-12 flex justify-start items-center flex-wrap'>
 				{workouts &&
 					workouts.map((workout) => (
 						<WorkoutDetails key={workout._id} workout={workout} />
