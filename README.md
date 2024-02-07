@@ -78,6 +78,6 @@ Start the frontend
 
 ![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125152.png)
 
-![App Screenshot]()
+![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125220.png)
 
-![App Screenshot]()
+![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125242.png)
