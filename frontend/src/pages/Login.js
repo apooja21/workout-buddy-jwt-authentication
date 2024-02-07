@@ -12,8 +12,8 @@ const Login = () => {
 	}
 
 	return (
-		<div className='form-container flex flex-col items-center'>
-			<form className='login flex flex-col  w-96 items-center p-6 mx-auto my-6 text-center rounded-2xl'
+		
+			<form className='login flex flex-col  w-96 items-center p-6 mx-auto mt-24 text-center rounded-2xl'
 			onSubmit={handleSubmit}>
 				<h3 className='text-paris-m text-2xl font-bold mb-4'>Login</h3>
 
@@ -22,7 +22,7 @@ const Login = () => {
 					placeholder='Email'
 					onChange={(e) => setEmail(e.target.value)}
 					value={email}
-					className='w-72 px-6 py-3 text-lg rounded-3xl mb-4'
+					className='w-72 px-6 py-3 text-lg rounded-3xl mb-4 border-solid border-2 border-paris-m'
 				/>
 
 				<input
@@ -30,7 +30,7 @@ const Login = () => {
 					placeholder='Password'
 					onChange={(e) => setPassword(e.target.value)}
 					value={password}
-					className='w-72 px-6 py-3 text-lg rounded-3xl mb-4'
+					className='w-72 px-6 py-3 text-lg rounded-3xl mb-4 border-solid border-2 border-paris-m'
 				/>
 
 				<button
@@ -40,7 +40,7 @@ const Login = () => {
 				</button>
 				{error && <div className='error'>{error}</div>}
 			</form>
-		</div>
+		
 		
 	)
 }
