@@ -24,14 +24,14 @@ The lessons I learned during building this simple project :-
 - Creating routes with express,
 - Fetching API in the frontend,
 - Usage of useContext,
-- Application of JWT authetication,
+- Application of JWT authentication,
 - Using TailwindCSS classes in the frontend.
 ## Features
 
 - The user first needs to sign up with their credentials i.e, email and password,
 - Each user logged in with their credentials can add their own personal workouts in their profile,
 - Workouts added by the users can't be global seen by other users,
-- User can add workout informations like workout name, loads, repetitions and target area,
+- User can add workout information like workout name, loads, repetitions and target area,
 
 
 ## Run Locally
@@ -76,8 +76,12 @@ Start the frontend
 
 ## Screenshots
 
-![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125152.png)
+![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125242.png)
 
 ![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125220.png)
 
-![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125242.png)
+![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125152.png)
+
+
+
+
