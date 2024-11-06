@@ -1,6 +1,8 @@
 ﻿
 # Workout Buddy
 
+This is MERN stack project which also have JWT authentication. It consists of login, signup and homepage.
+
 ## Screenshots
 
 ![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125242.png)
@@ -10,8 +12,6 @@
 ![App Screenshot](https://github.com/apooja21/workout-buddy-jwt-authentication/blob/main/pngs/Screenshot%202024-02-07%20125152.png)
 
 
-
-This is MERN stack project which also have JWT authentication. It consists of login, signup and homepage.
 
 
 
